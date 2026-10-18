@@ -29,5 +29,51 @@ Error generating stack: `+u.message+`
   </head>
   <body>
     <div id="root"></div>
+
+    <style>
+      #external-links {
+        box-sizing: border-box;
+        padding: 28px 20px;
+        background: #241710;
+        color: #fff8f0;
+        text-align: center;
+        font-family: Montserrat, Arial, sans-serif;
+      }
+      #external-links h2 {
+        margin: 0 0 16px;
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 1.35rem;
+      }
+      #external-links .link-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+      #external-links a {
+        display: inline-block;
+        padding: 10px 15px;
+        border: 1px solid #c89b69;
+        border-radius: 999px;
+        color: #fff8f0;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: background-color .2s ease, color .2s ease;
+      }
+      #external-links a:hover, #external-links a:focus-visible {
+        background: #c89b69;
+        color: #241710;
+      }
+    </style>
+    <nav id="external-links" aria-label="Links oficiais da Chocolat Sarayi">
+      <h2>Explore a Chocolat Sarayi</h2>
+      <div class="link-list">
+        <a href="https://adlsnmundula.github.io/Chocolate-sarayi/scroll%20page/index.html" target="_blank" rel="noopener noreferrer">Menu visual</a>
+        <a href="https://adlsnmundula.github.io/Chocolate-sarayi/main%20page/index.html" target="_blank" rel="noopener noreferrer">Website oficial</a>
+        <a href="https://www.instagram.com/chocolatesarayiluanda/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@chocolatesarayiluanda" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.facebook.com/chocolatesarayiluanda/" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
+    </nav>
   </body>
 </html>
