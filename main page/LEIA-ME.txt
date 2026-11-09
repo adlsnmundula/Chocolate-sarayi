@@ -1,0 +1,18 @@
+CHOCOLATE SARAYI — site estático pronto para GitHub Pages
+
+PUBLICAR
+1. Crie um repositório no GitHub (ex.: chocolate-sarayi).
+2. Envie TODO o conteúdo desta pasta para a raiz do repositório (index.html na raiz).
+3. Settings > Pages > Source: "Deploy from a branch" > Branch: main, pasta /(root) > Save.
+4. O site fica em https://SEU-UTILIZADOR.github.io/chocolate-sarayi/
+
+COMO EDITAR
+- Preços do menu: em menu.html, cada item tem data-price="2500". Deixe vazio (data-price="")
+  para mostrar "Sob consulta". Altere também o texto visível do preço no mesmo item.
+- Lojas e mapa: em localizacao.html, cada loja tem data-lat e data-lng (coordenadas).
+  Corrija a posição do Patriota e da Talatona Shopping com a morada exata da loja.
+- Pedidos: o carrinho envia o pedido para o WhatsApp +244 923 876 030 (script.js, constante WA).
+- Fotos e vídeos: pasta assets/ (substitua mantendo o nome do ficheiro).
+  Vídeos devem ser MP4 (H.264), com uma imagem de pré-visualização .jpg com o mesmo nome.
+
+Confirme morada, horário, telefone, e-mail e preços antes de publicar.
