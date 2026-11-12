@@ -25,7 +25,7 @@ cartEl.innerHTML = `
   <div class="cart-foot" id="cartFoot">
     <div class="total-row"><span>Total</span><strong id="cartTotal">0 Kz</strong></div>
     <p class="cart-note" id="cartNote" hidden>Alguns itens têm preço por confirmar.</p>
-    <label for="orderName">Nome (opcional)</label><input id="orderName" autocomplete="name">
+    <label for="orderName">Nome</label><input id="orderName" autocomplete="name">
     <label for="orderNotes">Notas (opcional)</label><textarea id="orderNotes" rows="2" placeholder="Ex.: levantamento às 15h"></textarea>
     <button class="btn gold block" id="sendOrder" type="button">Enviar pedido pelo WhatsApp</button>
     <button class="link-btn" id="clearCart" type="button">Esvaziar carrinho</button>
