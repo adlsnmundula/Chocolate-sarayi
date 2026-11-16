@@ -1,0 +1,11 @@
+SITES ATUALIZADOS — Chocolate Sarayi
+Cada pasta corresponde a uma pasta do repositório. Copie por cima, mantendo os nomes e as subpastas.
+Só vão os ficheiros que mudaram (o styles.css e o resto de "assets" do site principal ficam como estão).
+
+main page/      index, menu, galeria, localizacao, contactos .html + script.js + tracker.js
+                + assets/foto_brownie-recheio.jpg (foto nova)
+scroll page/    index.html + tracker.js + pasta videos/ (4 vídeos .mp4 e 4 imagens .jpg)
+redirectioner/  index.html + tracker.js
+
+PREÇOS "SOB CONSULTA" (Menu Visual): Oreo Milkshake e Sumo de Morango. Para pôr o preço, envie-me os valores.
+ESTATÍSTICAS: os 3 tracker.js ficam inativos até colocar o endereço do Worker (ENDPOINT) — ver pacote "painel-visitas".
