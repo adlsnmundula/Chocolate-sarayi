@@ -1,0 +1,15 @@
+name = "painel-visitas"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "painel-visitas"
+database_id = "COLE-AQUI-O-ID-DA-BASE-DE-DADOS"
+
+[triggers]
+crons = ["0 3 * * *"]
+
+# Opcional: limite quem pode enviar eventos / ler dados (o ADMIN_TOKEN define-se com "wrangler secret put ADMIN_TOKEN")
+# [vars]
+# ALLOWED_ORIGINS = "https://SEU-UTILIZADOR.github.io"

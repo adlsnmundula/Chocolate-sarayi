@@ -1,0 +1,50 @@
+PAINEL DE VISITAS — para ver quem entra nos seus sites e o que mais interessa às pessoas
+
+O QUE TEM
+  tracker/tracker.js   pequeno script que vai dentro de cada site (anónimo, sem cookies)
+  worker/              o "servidor" que guarda os dados (Cloudflare Worker + base de dados D1, plano gratuito)
+  painel/              a página do painel (vai para o GitHub Pages, na pasta "painel")
+
+O QUE O PAINEL MOSTRA
+  Visitantes, visitas, páginas vistas, tempo médio, quem volta, quem sai logo, pedidos enviados pelo WhatsApp,
+  quantas pessoas estão a navegar agora, horas de maior movimento, itens do menu mais vistos e mais adicionados
+  ao carrinho, fotos/vídeos abertos, lojas vistas no mapa, secções vistas (sites de página única), até onde as
+  pessoas descem a página, origem (Instagram, Google, WhatsApp...), dispositivo, navegador, cidade e atividade recente.
+  NÃO mostra nomes nem contactos: cada visitante é só um código aleatório. Não guarda IP.
+
+PASSO A PASSO (uma só vez)
+  1. Crie uma conta gratuita em cloudflare.com e instale o Node.js (nodejs.org).
+  2. Abra o terminal dentro da pasta "worker" e corra, um de cada vez:
+       npx wrangler login
+       npx wrangler d1 create painel-visitas
+     Copie o "database_id" que aparece para dentro de wrangler.toml (onde diz COLE-AQUI-O-ID...).
+       npx wrangler d1 execute painel-visitas --remote --file=schema.sql
+       npx wrangler secret put ADMIN_TOKEN
+     (escreva a palavra-passe que vai usar para entrar no painel)
+       npx wrangler deploy
+     No fim aparece o endereço, por exemplo https://painel-visitas.seu-nome.workers.dev
+  3. Em cada site, abra o tracker.js e troque ENDPOINT por esse endereço + /collect
+       const ENDPOINT = 'https://painel-visitas.seu-nome.workers.dev/collect';
+     e confirme o SITE (nome do site no painel). Envie o tracker.js atualizado para o GitHub.
+  4. Ponha a pasta "painel" no seu repositório do GitHub Pages (ex.: /painel/), abra painel/config.js e troque o
+     endereço pelo do Worker. Depois abra https://SEU-UTILIZADOR.github.io/REPOSITORIO/painel/ e entre.
+  5. Em cada aparelho seu (telemóvel, computador), abra o painel > menu (três pontos) > "Não contar as minhas
+     visitas", para as suas visitas não entrarem nas estatísticas.
+
+OUTRO SITE (por exemplo, o de página única com scroll)
+  Copie o tracker.js para a pasta desse site, mude SITE (ex.: 'xurrascao-no-limao'), coloque o mesmo ENDPOINT e
+  acrescente antes de </body>:  <script src="tracker.js" defer></script>
+  As secções <section id="..."> são contadas automaticamente. Para contar cliques em botões específicos use
+  data-track="nome" no elemento. Para eventos próprios:  track('view_item', 'Nome do item')
+
+SEGURANÇA E PRIVACIDADE
+  - Os dados só se leem com a palavra-passe (ADMIN_TOKEN). A página do painel não contém dados.
+  - Opcional: em wrangler.toml ative ALLOWED_ORIGINS com o endereço do seu site (https://utilizador.github.io)
+    para só aceitar eventos vindos dos seus sites.
+  - O tracker respeita "Do Not Track", ignora robôs e apaga dados com mais de 400 dias.
+  - Mantenha no site o aviso de que as visitas são medidas de forma anónima. Se quiser ter a certeza de que
+    cumpre a lei angolana de proteção de dados, confirme com um profissional.
+
+NOTA
+  O Worker foi testado de ponta a ponta com uma base SQLite equivalente; ainda não foi publicado na sua conta
+  Cloudflare. Se algum passo falhar, envie-me a mensagem de erro e eu corrijo.

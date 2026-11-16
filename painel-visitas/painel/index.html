@@ -1,0 +1,25 @@
+<!doctype html><html lang="pt-AO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#2B1C14"><title>Painel de visitas</title><link rel="stylesheet" href="painel.css"></head><body>
+<section id="login" class="login" hidden><form id="loginForm" class="card login-card"><h1>Painel de visitas</h1><p class="muted">Entre com a palavra-passe do painel.</p>
+<label for="pw">Palavra-passe</label><input id="pw" type="password" autocomplete="current-password" required>
+<label for="api">Endereço do Worker</label><input id="api" type="url" placeholder="https://painel-visitas.xxx.workers.dev" required>
+<p class="err" id="loginErr" hidden></p><button class="btn" type="submit">Entrar</button><button class="link" type="button" id="demoBtn">Ver com dados de demonstração</button></form></section>
+
+<div id="app" hidden>
+<header class="top"><div class="top-in"><div><h1>Painel de visitas</h1><span class="muted" id="updated"></span></div>
+<div class="controls"><select id="site" aria-label="Site"></select>
+<div class="seg" id="range" role="group" aria-label="Período"><button data-r="today">Hoje</button><button data-r="7d" class="on">7 dias</button><button data-r="30d">30 dias</button><button data-r="90d">90 dias</button></div>
+<button class="icon" id="refresh" title="Atualizar" aria-label="Atualizar">&#8635;</button><button class="icon" id="menuBtn" aria-label="Mais opções">&#8942;</button></div></div>
+<div class="more" id="more" hidden><button id="csv">Exportar CSV</button><button id="ignore"></button><button id="logout">Sair</button></div></header>
+<main class="wrap">
+<div class="banner" id="demoBanner" hidden>Dados de demonstração — ligue o Worker para ver os números reais.</div>
+<section class="kpis" id="kpis"></section>
+<section class="grid2"><div class="card"><h2>Visitantes por dia</h2><div id="daily"></div></div><div class="card"><h2>Horas de maior movimento</h2><p class="muted sm">Hora de Luanda</p><div id="hourly"></div></div></section>
+<section class="card"><h2>O que as pessoas mais gostam</h2><div class="grid3"><div><h3>Itens mais vistos</h3><div id="viewed"></div></div><div><h3>Mais adicionados ao carrinho</h3><div id="added"></div></div><div><h3>Fotos e vídeos abertos</h3><div id="gallery"></div></div></div></section>
+<section class="grid2"><div class="card"><h2>Do interesse ao pedido</h2><div id="funnel"></div></div><div class="card"><h2>Secções e lojas</h2><div class="grid2in"><div><h3>Secções vistas</h3><div id="sections"></div></div><div><h3>Lojas no mapa</h3><div id="stores"></div></div></div></div></section>
+<section class="grid3c"><div class="card"><h2>Páginas mais vistas</h2><div id="pages"></div></div><div class="card"><h2>De onde vêm</h2><div id="refs"></div></div><div class="card"><h2>Cliques importantes</h2><div id="clicks"></div></div></section>
+<section class="grid3c"><div class="card"><h2>Dispositivos</h2><div id="devices"></div><h3>Sistema</h3><div id="os"></div></div><div class="card"><h2>Navegadores</h2><div id="browsers"></div></div><div class="card"><h2>Onde estão</h2><div id="cities"></div><h3>Países</h3><div id="countries"></div></div></section>
+<section class="card"><h2>Quanto as pessoas descem a página</h2><p class="muted sm">Percentagem de visitas que chegaram a cada ponto.</p><div id="scroll"></div></section>
+<section class="card"><h2>Atividade recente <span class="muted sm">(últimas 24 h)</span></h2><div id="recent" class="recent"></div></section>
+<p class="foot muted sm">Dados anónimos: sem nomes, sem IP, sem cookies. Cada visitante é só um código aleatório no navegador.</p>
+</main></div>
+<script src="config.js"></script><script src="painel.js"></script></body></html>
